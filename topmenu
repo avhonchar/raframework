@@ -1,0 +1,10 @@
+<?
+$table=mysql_query("SELECT * FROM menu ORDER BY id;");
+while($row=mysql_fetch_array($table))
+{?>
+	<?if ($thispageid==$row["id"]) {} else {echo '<a href="'; echo $row["link"]; echo '">';}?>
+	<div class="<?if ($thispageid==$row["id"]) {echo 'topmenu-button-this';} else {echo 'topmenu-button';}?>">
+		<?echo $row["name"];?>
+	</div>		
+<?if ($thispageid==$row["id"]) {} else {echo '</a>';}?>
+<?}?>
